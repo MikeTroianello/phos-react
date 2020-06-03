@@ -1,9 +1,0 @@
-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-Link {
-  margin: 3%;
-}

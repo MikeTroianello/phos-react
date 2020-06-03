@@ -1,0 +1,17 @@
+#create-card-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-box {
+  border-style: solid;
+  width: 28%;
+  background-color: aquamarine;
+}
+
+.textbox {
+  display: flex;
+  justify-content: space-between;
+  margin: 10% 3%;
+}

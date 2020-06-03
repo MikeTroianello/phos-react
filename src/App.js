@@ -1,11 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Card from './components/card/Card';
-import Main from './components/main/Main.js';
+import { Route, Switch } from 'react-router-dom';
 
-function App() {
-  return <Main />;
-}
+import Navbar from './components/navbar/Navbar';
+import Home from './components/home/Home';
+import Card from './components/card/Card';
+import CreateCard from './components/createCard/CreateCard';
+
+import './App.css';
+
+const App = () => {
+  return (
+    <div>
+      <Navbar />
+      <Switch>
+        <Route exact path='/' render={(props) => <Home {...props} />} />
+        <Route exact path='/card' render={(props) => <Card {...props} />} />
+        <Route
+          exact
+          path='/create-card'
+          render={(props) => <CreateCard {...props} />}
+        />
+      </Switch>
+    </div>
+  );
+};
 
 export default App;

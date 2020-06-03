@@ -1,1 +1,10 @@
-//TYPES IS THE ACTION TYPE AND PAYLOAD
+export const TYPE = 'TYPE';
+export const TITLE = 'TITLE';
+export const DESCRIPTION = 'DESCRIPTION';
+export const EXAMPLE = 'EXAMPLE';
+export const REFERENCE = 'REFERENCE';
+export const TAGS = 'TAGS';
+export const HIDECREATOR = 'HIDECREATOR';
+export const PUBLIC = 'PUBLIC';
+
+export const UPDATE_FIELD = 'UPDATE_FIELD';
