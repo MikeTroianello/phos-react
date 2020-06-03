@@ -1,0 +1,10 @@
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/* .link {
+  margin: 3% 10%;
+  width: 100%;
+} */

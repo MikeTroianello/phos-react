@@ -1,0 +1,16 @@
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+div > div {
+  width: 40%;
+  justify-content: space-between;
+  color: pink;
+}
+
+/* .link {
+  margin: 3% 10%;
+  width: 100%;
+} */

@@ -1,0 +1,17 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 1% 1 0 0;
+}
+
+/* .navbar-container > div {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  background-color: pink;
+} */
+
+.link {
+  margin-left: 10%;
+}

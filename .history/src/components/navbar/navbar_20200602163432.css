@@ -1,0 +1,17 @@
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+div > div {
+  width: 40%;
+
+  justify-content: space-around;
+  background-color: pink;
+}
+
+.link {
+  margin: 3% 30%;
+  width: 100%;
+}

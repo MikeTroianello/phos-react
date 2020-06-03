@@ -1,0 +1,9 @@
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+Link {
+  max-width: 10;
+}

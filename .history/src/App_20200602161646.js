@@ -2,10 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Card from './components/card/Card';
-import Main from './components/main/Main.js';
+import { ReactRouter as Router } from 'react-router-dom';
 
 function App() {
-  return <Main />;
+  return (
+    <Router>
+      <Card />
+    </Router>
+  );
 }
 
 export default App;

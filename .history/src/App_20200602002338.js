@@ -2,10 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Card from './components/card/Card';
-import Main from './components/main/Main.js';
 
 function App() {
-  return <Main />;
+  return (
+    <div>
+      <Card />
+    </div>
+  );
 }
 
 export default App;
