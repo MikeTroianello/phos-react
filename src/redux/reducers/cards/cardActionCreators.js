@@ -5,7 +5,31 @@ export const updateField = (e) => ({
   payload: { [e.target.name]: e.target.value },
 });
 
-// export const updateField = (e) => {
-//   console.log('THIS IS THE TYPE', e.target.name);
-//   console.log('THIS IS THE VALUE', e.target.value);
+// export const updateCheckBox = (e) => {
+//   let val = Boolean(e.target.value);
+//   console.log('WE ARE HERE', e.target.name, val);
+//   return {
+//     type: ActionTypes.UPDATE_CHECKBOX,
+//     payload: { [e.target.name]: val },
+//   };
 // };
+export const updateCheckBox = (e) => {
+  return {
+    type: ActionTypes.UPDATE_CHECKBOX,
+    payload: [e.target.name],
+  };
+};
+
+// export const createCard = (card) => ({
+//   type: ActionTypes.CREATE_CARD,
+//   payload: card,
+// });
+
+export const createCard = (e, card) => {
+  e.preventDefault();
+  console.log('THIS SHOULD STAY????', card);
+  return {
+    type: ActionTypes.CREATE_CARD,
+    payload: card,
+  };
+};
