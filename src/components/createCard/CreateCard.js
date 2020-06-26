@@ -26,6 +26,7 @@ const CreateCard = (props) => {
           <Button sendUp={(e) => props.createCard(e, props.cardReducer)} />
         </div>
       </form>
+      <h2>{props.cardReducer.message}</h2>
     </div>
   );
 };

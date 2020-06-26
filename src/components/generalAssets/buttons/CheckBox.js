@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { updateCheckBox } from '../../../redux/reducers/cards/cardActionCreators';
 
 const CheckBox = (props) => {
-  console.log(props.cardReducer);
   return (
     <div className='textbox'>
       <div>

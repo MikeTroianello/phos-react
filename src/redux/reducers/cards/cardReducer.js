@@ -7,6 +7,7 @@ let defaultState = {
   reference: '',
   tags: '',
   public: false,
+  message: '',
 };
 
 export const cardReducer = (state = defaultState, action) => {
@@ -21,17 +22,14 @@ export const cardReducer = (state = defaultState, action) => {
         ...state,
         [action.payload]: !state[action.payload],
       };
-    case ActionTypes.CREATE_CARD:
+    case ActionTypes.CARD_CREATED:
       return {
-        type: '',
-        title: '',
-        description: '',
-        example: '',
-        reference: '',
-        tags: '',
-        public: false,
+        ...defaultState,
+        message: action.payload,
       };
     default:
       return state;
   }
 };
+
+//NOTE: Object.keys/values will return the key/value pair for each specific text field
