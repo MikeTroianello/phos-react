@@ -11,3 +11,4 @@ export const UPDATE_FIELD = 'UPDATE_FIELD';
 export const UPDATE_CHECKBOX = 'UPDATE_CHECKBOX';
 
 export const CREATE_CARD = 'CREATE_CARD';
+export const CARD_CREATED = 'CARD_CREATED';

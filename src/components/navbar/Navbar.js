@@ -15,6 +15,9 @@ const Navbar = () => {
       <div className='link'>
         <Link to='/collections'>Collections</Link>
       </div>
+      <div className='link'>
+        <Link to='/create-account'>Create Account</Link>
+      </div>
     </div>
   );
 };

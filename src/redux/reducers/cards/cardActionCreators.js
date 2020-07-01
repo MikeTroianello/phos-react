@@ -1,6 +1,6 @@
 import * as ActionTypes from './cardActionTypes';
 
-export const updateField = (e) => ({
+export const updateCardField = (e) => ({
   type: ActionTypes.UPDATE_FIELD,
   payload: { [e.target.name]: e.target.value },
 });

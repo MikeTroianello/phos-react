@@ -5,6 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
 import Card from './components/card/Card';
 import CreateCard from './components/createCard/CreateCard';
+import CreateAccount from './components/account/CreateAccount';
 
 import './App.css';
 
@@ -19,6 +20,11 @@ const App = () => {
           exact
           path='/create-card'
           render={(props) => <CreateCard {...props} />}
+        />
+        <Route
+          exact
+          path='/create-account'
+          render={(props) => <CreateAccount {...props} />}
         />
       </Switch>
     </div>

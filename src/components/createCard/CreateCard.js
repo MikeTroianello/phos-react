@@ -10,20 +10,26 @@ import { createCard } from '../../redux/reducers/cards/cardActionCreators';
 import './createCard.css';
 
 const CreateCard = (props) => {
-  console.log('THE CARD REDUCER FOR CREATE CARD', props.cardReducer);
   return (
     <div>
       <h1>The Form</h1>
       <form id='create-card-form'>
         <div className='form-box'>
-          <Textbox field='type' required={true} />
-          <Textbox field='title' required={true} />
-          <LargeTextbox field='description' required={true} />
-          <LargeTextbox field='example' />
-          <Textbox field='reference' />
-          <Textbox field='tags' />
-          <CheckBox checkField='public' description='Make this private?' />
-          <Button sendUp={(e) => props.createCard(e, props.cardReducer)} />
+          <Textbox field='type' required={true} reducer='card' />
+          <Textbox field='title' required={true} reducer='card' />
+          <LargeTextbox field='description' required={true} reducer='card' />
+          <LargeTextbox field='example' reducer='card' />
+          <Textbox field='reference' reducer='card' />
+          <Textbox field='tags' reducer='card' />
+          <CheckBox
+            checkField='public'
+            description='Make this private?'
+            reducer='card'
+          />
+          <Button
+            sendUp={(e) => props.createCard(e, props.cardReducer)}
+            reducer='card'
+          />
         </div>
       </form>
       <h2>{props.cardReducer.message}</h2>
