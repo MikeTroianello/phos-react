@@ -1,1 +1,1 @@
-export const UPDATE_FIELD = 'UPDATE_FIELD';
+export const UPDATE_USER_FIELD = 'UPDATE_USER_FIELD';

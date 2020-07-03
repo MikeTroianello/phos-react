@@ -24,23 +24,41 @@ const CreateCard = (props) => {
             state={props.cardReducer}
             dispatch={(e) => props.updateCardField(e)}
           />
-          {/* <Textbox field='title' required={true} reducer='card' />
-          <LargeTextbox field='description' required={true} reducer='card' />
-          <LargeTextbox field='example' reducer='card' />
-          <Textbox field='reference' reducer='card' />
-          <Textbox field='tags' reducer='card' />
+          <Textbox
+            field='title'
+            required={true}
+            state={props.cardReducer}
+            dispatch={(e) => props.updateCardField(e)}
+          />
+          <LargeTextbox field='description' required={true} />
+          <LargeTextbox field='example' />
+          <Textbox
+            field='reference'
+            state={props.cardReducer}
+            dispatch={(e) => props.updateCardField(e)}
+          />
+          <Textbox
+            field='tags'
+            state={props.cardReducer}
+            dispatch={(e) => props.updateCardField(e)}
+          />
           <CheckBox
             checkField='public'
             description='Make this private?'
             reducer='card'
-          /> */}
+          />
           <Button
-            sendUp={(e) => props.createCard(e, props.cardReducer)}
+            onEnter={(e) => props.createCard(e, props.cardReducer)}
             reducer='card'
           />
         </div>
       </form>
       <h2>{props.cardReducer.message}</h2>
+      <ul>
+        {Object.values(props.cardReducer).map((value) => {
+          return <li>{value.toString()}</li>;
+        })}
+      </ul>
     </div>
   );
 };

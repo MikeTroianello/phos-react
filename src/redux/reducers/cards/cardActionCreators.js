@@ -1,17 +1,9 @@
 import * as ActionTypes from './cardActionTypes';
 
-// export const updateCardField = (e) => ({
-//   type: ActionTypes.UPDATE_FIELD,
-//   payload: { [e.target.name]: e.target.value },
-// });
-
-export const updateCardField = (e) => {
-  console.log(e.target);
-  return {
-    type: ActionTypes.UPDATE_FIELD,
-    payload: { [e.target.name]: e.target.value },
-  };
-};
+export const updateCardField = (e) => ({
+  type: ActionTypes.UPDATE_FIELD,
+  payload: { [e.target.name]: e.target.value },
+});
 
 export const updateCheckBox = (e) => {
   return {
@@ -22,6 +14,7 @@ export const updateCheckBox = (e) => {
 
 export const createCard = (e, card) => async (dispatch) => {
   e.preventDefault();
+  console.log('CREATING CARD');
   let response = await fetch(`http://localhost:3000/cards/create`, {
     method: 'POST',
     headers: {
