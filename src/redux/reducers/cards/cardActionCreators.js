@@ -1,9 +1,17 @@
 import * as ActionTypes from './cardActionTypes';
 
-export const updateCardField = (e) => ({
-  type: ActionTypes.UPDATE_FIELD,
-  payload: { [e.target.name]: e.target.value },
-});
+// export const updateCardField = (e) => ({
+//   type: ActionTypes.UPDATE_FIELD,
+//   payload: { [e.target.name]: e.target.value },
+// });
+
+export const updateCardField = (e) => {
+  console.log(e.target);
+  return {
+    type: ActionTypes.UPDATE_FIELD,
+    payload: { [e.target.name]: e.target.value },
+  };
+};
 
 export const updateCheckBox = (e) => {
   return {

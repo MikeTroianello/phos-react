@@ -22,8 +22,8 @@ const Textbox = (props) => {
         type={props.type || 'text'}
         name={props.field}
         placeholder={props.field}
-        onChange={(e) => reducerEval(e, props)}
-        value={reducerValue(props)}
+        onChange={(e) => props.dispatch(e, props)}
+        value={props.state[props.field]}
       />
     </div>
   );

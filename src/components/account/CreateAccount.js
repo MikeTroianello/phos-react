@@ -5,7 +5,7 @@ const CreateAcount = () => {
   return (
     <div>
       <h1>Create an Account</h1>
-      <TextBox field='username' required={true} reducer='user' />
+      {/* <TextBox field='username' required={true} reducer='user' />
       <TextBox
         field='password'
         type='password'
@@ -14,7 +14,7 @@ const CreateAcount = () => {
       />
       <TextBox field='fullname' reducer='user' />
       <TextBox field='email' type='email' reducer='user' />
-      <TextBox field='phone' type='tel' reducer='user' />
+      <TextBox field='phone' type='tel' reducer='user' /> */}
     </div>
   );
 };

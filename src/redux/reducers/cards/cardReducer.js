@@ -1,13 +1,13 @@
 import * as ActionTypes from './cardActionTypes';
 let defaultCardState = {
-  type: '1',
-  title: '2',
+  type: '',
+  title: '',
   description: '',
   example: '',
-  reference: '4',
-  tags: '5',
+  reference: '',
+  tags: '',
   public: false,
-  message: '6',
+  message: '',
 };
 
 export const cardReducer = (state = defaultCardState, action) => {
