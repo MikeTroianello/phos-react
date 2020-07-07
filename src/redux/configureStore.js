@@ -3,10 +3,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { cardReducer } from './reducers/cards/cardReducer';
 import { userReducer } from './reducers/user/userReducer';
+import { collectionReducer } from './reducers/collections/collectionReducer';
 
 export const ConfigureStore = () => {
   const store = createStore(
-    combineReducers({ cardReducer, userReducer }),
+    combineReducers({ cardReducer, userReducer, collectionReducer }),
     applyMiddleware(thunk, logger)
   );
 

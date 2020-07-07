@@ -2,10 +2,12 @@ import * as ActionTypes from './userActionTypes';
 let defaultUserState = {
   username: '',
   password: '',
+  passwordDouble: '',
   fullname: '',
   email: '',
   phone: '',
   errorMessage: '',
+  signup: false,
 };
 
 export const userReducer = (state = defaultUserState, action) => {
