@@ -13,10 +13,16 @@ const Navbar = () => {
         <Link to='/create-card'>Create Card</Link>
       </div>
       <div className='link'>
-        <Link to='/collections'>Collections</Link>
+        <Link to='/collections/all'>Collections</Link>
+      </div>
+      <div className='link'>
+        <Link to='/create-collection'>Create Collection</Link>
       </div>
       <div className='link'>
         <Link to='/create-account'>Create Account</Link>
+      </div>
+      <div className='link'>
+        <Link to='/login'>Log In</Link>
       </div>
     </div>
   );

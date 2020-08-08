@@ -26,6 +26,7 @@ const CheckBox = (props) => {
 
 const mapStateToProps = (state) => ({
   cardReducer: state.cardReducer,
+  collectionReducer: state.collectionReducer,
 });
 
 const mapDispatchToProps = {

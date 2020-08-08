@@ -1,50 +1,62 @@
 import React from 'react';
 import TextBox from '../generalAssets/textBoxes/Textbox';
+import Button from '../generalAssets/buttons/Button';
 
 import { connect } from 'react-redux';
-import { updateUserField } from '../../redux/reducers/user/userActionCreators';
+import {
+  updateUserField,
+  createUser,
+  userPreCheck,
+} from '../../redux/reducers/user/userActionCreators';
 
 const CreateAcount = (props) => {
   return (
     <div>
       <h1>Create an Account</h1>
-      <TextBox
-        field='username'
-        required={true}
-        state={props.userReducer}
-        dispatch={(e) => props.updateUserField(e)}
+      <div>
+        <TextBox
+          field='username'
+          required={true}
+          state={props.userReducer}
+          dispatch={(e) => props.updateUserField(e)}
+        />
+        <TextBox
+          field='password'
+          type='password'
+          required={true}
+          state={props.userReducer}
+          dispatch={(e) => props.updateUserField(e)}
+        />
+        <TextBox
+          field='passwordDouble'
+          type='password'
+          required={true}
+          state={props.userReducer}
+          dispatch={(e) => props.updateUserField(e)}
+        />
+        <TextBox
+          field='fullname'
+          state={props.userReducer}
+          dispatch={(e) => props.updateUserField(e)}
+        />
+        <TextBox
+          field='email'
+          type='email'
+          state={props.userReducer}
+          dispatch={(e) => props.updateUserField(e)}
+        />
+        <TextBox
+          field='phone'
+          type='tel'
+          state={props.userReducer}
+          dispatch={(e) => props.updateUserField(e)}
+        />
+      </div>
+      <Button
+        onEnter={(e) => props.userPreCheck(e, props.userReducer)}
+        reducer='user'
       />
-      <TextBox
-        field='password'
-        type='password'
-        required={true}
-        state={props.userReducer}
-        dispatch={(e) => props.updateUserField(e)}
-      />
-      <TextBox
-        field='passwordDouble'
-        type='password'
-        required={true}
-        state={props.userReducer}
-        dispatch={(e) => props.updateUserField(e)}
-      />
-      <TextBox
-        field='fullname'
-        state={props.userReducer}
-        dispatch={(e) => props.updateUserField(e)}
-      />
-      <TextBox
-        field='email'
-        type='email'
-        state={props.userReducer}
-        dispatch={(e) => props.updateUserField(e)}
-      />
-      <TextBox
-        field='phone'
-        type='tel'
-        state={props.userReducer}
-        dispatch={(e) => props.updateUserField(e)}
-      />
+      <h1>{props.userReducer.message}</h1>
     </div>
   );
 };
@@ -55,6 +67,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   updateUserField: (e) => updateUserField(e),
+  createUser: (e, user) => createUser(e, user),
+  userPreCheck: (e, user) => userPreCheck(e, user),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateAcount);

@@ -1,0 +1,10 @@
+.all-collections {
+  display: flex;
+  flex-direction: column;
+}
+
+.collection {
+  border: 1px solid black;
+  margin: 5%;
+  text-align: center;
+}

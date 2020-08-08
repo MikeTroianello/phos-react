@@ -6,6 +6,9 @@ import Home from './components/home/Home';
 import Card from './components/card/Card';
 import CreateCard from './components/createCard/CreateCard';
 import CreateAccount from './components/account/CreateAccount';
+import CreateCollection from './components/collections/CreateCollection';
+import ViewAllCollections from './components/collections/ViewAllCollections';
+import Login from './components/account/Login';
 
 import './App.css';
 
@@ -23,8 +26,19 @@ const App = () => {
         />
         <Route
           exact
+          path='/create-collection'
+          render={(props) => <CreateCollection {...props} />}
+        />
+        <Route
+          exact
           path='/create-account'
           render={(props) => <CreateAccount {...props} />}
+        />
+        <Route exact path='/login' render={(props) => <Login {...props} />} />
+        <Route
+          exact
+          path='/collections/all'
+          render={(props) => <ViewAllCollections {...props} />}
         />
       </Switch>
     </div>
