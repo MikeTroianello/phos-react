@@ -16,21 +16,21 @@ const CreateAcount = (props) => {
       <div>
         <TextBox
           field='username'
-          required={true}
+          required
           state={props.userReducer}
           dispatch={(e) => props.updateUserField(e)}
         />
         <TextBox
           field='password'
           type='password'
-          required={true}
+          required
           state={props.userReducer}
           dispatch={(e) => props.updateUserField(e)}
         />
         <TextBox
           field='passwordDouble'
           type='password'
-          required={true}
+          required
           state={props.userReducer}
           dispatch={(e) => props.updateUserField(e)}
         />

@@ -8,17 +8,33 @@ class ViewAllCollections extends Component {
   };
 
   componentDidMount = async () => {
-    let collections = await fetch(`http://localhost:3000/collections/all`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    let collections = await fetch(
+      `https://phos-backend.herokuapp.com/collections/all`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      }
+    );
     collections = await collections.json();
     this.setState({
       collections: collections,
     });
   };
+  // componentDidMount = async () => {
+  //   let collections = await fetch(`http://localhost:3000/collections/all`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  //   collections = await collections.json();
+  //   this.setState({
+  //     collections: collections,
+  //   });
+  // };
 
   render() {
     console.log('COLLLLLLLLLEEECCTIONS', this.state.collections);

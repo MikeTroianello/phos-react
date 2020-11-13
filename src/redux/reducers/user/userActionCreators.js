@@ -20,13 +20,17 @@ export const userPreCheck = (e, user) => {
 
 export const createUser = (user) => async (dispatch) => {
   // e.preventDefault();
-  let response = await fetch(`http://localhost:3000/users/signup`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(user),
-  });
+  let response = await fetch(
+    `${process.env.BACKEND}/users/signup`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(user),
+    }
+  );
   response = await response.json();
   dispatch(userCreated(response.message));
 };
@@ -48,11 +52,13 @@ export const loginPreCheck = (e, user) => {
 
 export const login = (user) => async (dispatch) => {
   console.log('LOGGING IN', user);
-  let response = await fetch(`http://localhost:3000/users/login`, {
+  // let response = await fetch(`https://phos-backend.herokuapp.com/users/login`, {
+  let response = await fetch(`${process.env.BACKEND}/users/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include',
     body: JSON.stringify(user),
   });
   response = await response.json();

@@ -15,13 +15,17 @@ export const updateCheckBox = (e) => {
 export const createCard = (e, card) => async (dispatch) => {
   e.preventDefault();
   console.log('CREATING CARD');
-  let response = await fetch(`http://localhost:3000/cards/create`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(card),
-  });
+  let response = await fetch(
+    `${process.env.BACKEND}/cards/create`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(card),
+    }
+  );
   response = await response.json();
   dispatch(cardCreated(response.message));
 };

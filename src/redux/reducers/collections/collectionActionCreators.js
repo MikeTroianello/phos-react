@@ -22,13 +22,17 @@ export const updateCheckBox = (e) => {
 export const createCollection = (e, collection) => async (dispatch) => {
   e.preventDefault();
   console.log('CREATING collection');
-  let response = await fetch(`http://localhost:3000/collections/create`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(collection),
-  });
+  let response = await fetch(
+    `${process.env.BACKEND}/collections/create`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(collection),
+    }
+  );
   response = await response.json();
   dispatch(collectionCreated(response.message));
 };

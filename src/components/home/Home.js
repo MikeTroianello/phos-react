@@ -10,8 +10,11 @@ const Home = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  cardReducer: state.cardReducer,
-});
+const mapStateToProps = (state) => {
+  console.log('STATE', state);
+  return {
+    cardReducer: state.cardReducer,
+  };
+};
 
 export default connect(mapStateToProps)(Home);
