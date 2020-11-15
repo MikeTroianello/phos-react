@@ -3,3 +3,4 @@ export const SIGNUP_FAILED = 'SIGNUP_FAILED';
 export const USER_CREATED = 'USER_CREATED';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
 export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';

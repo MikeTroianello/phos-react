@@ -2,4 +2,9 @@ node_modules
 
 .env
 
-.history
+source
+.source
+./source 
+**source
+*source
+

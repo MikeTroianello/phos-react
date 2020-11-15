@@ -9,6 +9,7 @@ import CreateAccount from './components/account/CreateAccount';
 import CreateCollection from './components/collections/CreateCollection';
 import ViewAllCollections from './components/collections/ViewAllCollections';
 import Login from './components/account/Login';
+import Logout from './components/account/Logout'
 
 import './App.css';
 
@@ -35,6 +36,7 @@ const App = () => {
           render={(props) => <CreateAccount {...props} />}
         />
         <Route exact path='/login' render={(props) => <Login {...props} />} />
+        <Route exact path='/logout' render={(props) => <Logout {...props} />} />
         <Route
           exact
           path='/collections/all'

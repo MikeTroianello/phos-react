@@ -1,31 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {connect} from 'react-redux'
+import LoggedInNavbar from './LoggedInNavbar'
+import LoggedOutNavbar from './LoggedOutNavbar'
 
 import './navbar.css';
 
-const Navbar = () => {
-  return (
-    <div className='navbar-container'>
-      <div className='link'>
-        <Link to='/'>Home</Link>
-      </div>
-      <div className='link'>
-        <Link to='/create-card'>Create Card</Link>
-      </div>
-      <div className='link'>
-        <Link to='/collections/all'>Collections</Link>
-      </div>
-      <div className='link'>
-        <Link to='/create-collection'>Create Collection</Link>
-      </div>
-      <div className='link'>
-        <Link to='/create-account'>Create Account</Link>
-      </div>
-      <div className='link'>
-        <Link to='/login'>Log In</Link>
-      </div>
-    </div>
-  );
-};
+// const Navbar = (props) => {
+//   if(props.user.loggedIn)return<LoggedInNavbar/>
+//   else return <LoggedOutNavbar/>
+// };
 
-export default Navbar;
+const Navbar = (props) => props.user.loggedIn ? <LoggedInNavbar/> : <LoggedOutNavbar/>
+
+const mapStateToProps = state => ({
+  user: state.userReducer
+})
+
+export default connect(mapStateToProps)(Navbar);

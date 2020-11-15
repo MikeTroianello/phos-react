@@ -1,5 +1,7 @@
 import * as ActionTypes from './userActionTypes';
 
+import {source} from '../../../source'
+
 export const updateUserField = (e) => {
   return {
     type: ActionTypes.UPDATE_USER_FIELD,
@@ -19,15 +21,15 @@ export const userPreCheck = (e, user) => {
 };
 
 export const createUser = (user) => async (dispatch) => {
-  // e.preventDefault();
+console.log('HERE', process.env)
   let response = await fetch(
-    `${process.env.BACKEND}/users/signup`,
+    `${source}/users/signup`,
     {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include',
+      credentials: 'omit',
       body: JSON.stringify(user),
     }
   );
@@ -40,32 +42,72 @@ export const userCreated = (message) => ({
   payload: message,
 });
 
-export const loginPreCheck = (e, user) => {
+export const loginPreCheck = (e, user) => dispatch => {
   e.preventDefault();
+  console.log("DA PRE CHECK", user)
   if (!user.username || !user.password) {
     return {
       type: ActionTypes.LOGIN_FAILED,
       payload: 'Please enter a username and password',
     };
-  } else login(user);
+  } else dispatch(login(user))
 };
+
 
 export const login = (user) => async (dispatch) => {
   console.log('LOGGING IN', user);
-  // let response = await fetch(`https://phos-backend.herokuapp.com/users/login`, {
-  let response = await fetch(`${process.env.BACKEND}/users/login`, {
+  let response = await fetch(`${source}/users/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    credentials: 'include',
+    credentials: 'omit',
     body: JSON.stringify(user),
   });
   response = await response.json();
-  dispatch(loggedIn(response.message));
+  console.log("YOU HAVE NOW LOGGED IN", response)
+  dispatch(loggedIn(response.message, response.token));
 };
 
-export const loggedIn = (message) => ({
+export const loggedIn = (message,token) => ({
   type: ActionTypes.LOGIN,
-  payload: message,
+  payload: {message, token},
 });
+
+
+export const checkLogin = async () => {
+  let response = await fetch(`${source}/users/checkLogin`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'omit',
+  });
+  response = await response.json();
+  console.log("WHAT IS HAPPENING?", response)
+}
+
+// export const logout = async() => {
+//   console.log("INSIDE LOGOUT")
+//   await fetch(`${source}/users/logout`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     credentials: 'omit',
+//   });
+//   console.log("YOU HAVE NOW LOGGED OUT")
+//   return{type: ActionTypes.LOGOUT}
+// }
+export const logout = () => {
+  // console.log("INSIDE LOGOUT")
+  // await fetch(`${source}/users/logout`, {
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   credentials: 'omit',
+  // });
+  // console.log("YOU HAVE NOW LOGGED OUT")
+  return{type: ActionTypes.LOGOUT}
+}

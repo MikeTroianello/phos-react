@@ -15,7 +15,7 @@ class ViewAllCollections extends Component {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
+        credentials: 'omit',
       }
     );
     collections = await collections.json();

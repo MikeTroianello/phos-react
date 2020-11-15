@@ -7,6 +7,8 @@ let defaultUserState = {
   email: '',
   phone: '',
   message: '',
+  token: null,
+  loggedIn:false,
   signup: false,
 };
 
@@ -36,7 +38,15 @@ export const userReducer = (state = defaultUserState, action) => {
       return {
         ...state,
         password: '',
+        message: action.payload.message,
+        token: action.payload.token,
+        loggedIn: true
       };
+    case ActionTypes.LOGOUT:
+      return{
+        ...defaultUserState,
+        message: 'You have logged out!'
+      }
     default:
       return state;
   }

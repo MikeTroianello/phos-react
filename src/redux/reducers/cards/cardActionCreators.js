@@ -1,4 +1,5 @@
 import * as ActionTypes from './cardActionTypes';
+import {source} from '../../../source'
 
 export const updateCardField = (e) => ({
   type: ActionTypes.UPDATE_FIELD,
@@ -16,13 +17,13 @@ export const createCard = (e, card) => async (dispatch) => {
   e.preventDefault();
   console.log('CREATING CARD');
   let response = await fetch(
-    `${process.env.BACKEND}/cards/create`,
+    `${source}/cards/create`,
     {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include',
+      credentials: 'omit',
       body: JSON.stringify(card),
     }
   );

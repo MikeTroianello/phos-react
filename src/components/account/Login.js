@@ -11,6 +11,7 @@ import {
 } from '../../redux/reducers/user/userActionCreators';
 
 const Login = (props) => {
+  console.log("DA PROPS", props)
   return (
     <div>
       <h1>LOGIN</h1>

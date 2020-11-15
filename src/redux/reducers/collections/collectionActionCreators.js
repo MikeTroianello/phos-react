@@ -1,4 +1,5 @@
 import * as ActionTypes from './collectionActionTypes';
+import {source} from '../../../source'
 
 export const updateCollectionField = (e) => {
   console.log('UPDATING...');
@@ -23,13 +24,13 @@ export const createCollection = (e, collection) => async (dispatch) => {
   e.preventDefault();
   console.log('CREATING collection');
   let response = await fetch(
-    `${process.env.BACKEND}/collections/create`,
+    `${source}/collections/create`,
     {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include',
+      credentials: 'omit',
       body: JSON.stringify(collection),
     }
   );
