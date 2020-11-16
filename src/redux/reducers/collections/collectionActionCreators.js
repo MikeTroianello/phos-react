@@ -20,7 +20,7 @@ export const updateCheckBox = (e) => {
   };
 };
 
-export const createCollection = (e, collection) => async (dispatch) => {
+export const createCollection = (e, collection, token) => async (dispatch) => {
   e.preventDefault();
   console.log('CREATING collection');
   let response = await fetch(
@@ -29,6 +29,7 @@ export const createCollection = (e, collection) => async (dispatch) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'x-auth-token': token,
       },
       credentials: 'omit',
       body: JSON.stringify(collection),

@@ -31,11 +31,11 @@ const CreateCollection = (props) => {
         />
         <CheckBox
           reducer='collection'
-          checkField='public'
+          checkField='private'
           description='Make this private?'
         />
         <Button
-          onEnter={(e) => props.createCollection(e, props.collectionReducer)}
+          onEnter={(e) => props.createCollection(e, props.collectionReducer, props.user.token)}
         />
       </div>
       <h1>{props.collectionReducer.message}</h1>
@@ -45,11 +45,12 @@ const CreateCollection = (props) => {
 
 const mapStateToProps = (state) => ({
   collectionReducer: state.collectionReducer,
+  user: state.userReducer
 });
 
 const mapDispatchToProps = {
   updateCollectionField: (e) => updateCollectionField(e),
-  createCollection: (e, collection) => createCollection(e, collection),
+  createCollection: (e, collection, token) => createCollection(e, collection, token),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateCollection);

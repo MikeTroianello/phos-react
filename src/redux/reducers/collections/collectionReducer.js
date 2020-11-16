@@ -2,7 +2,7 @@ import * as ActionTypes from './collectionActionTypes';
 let defaultColectionStore = {
   name: '',
   tags: '',
-  public: false,
+  private: false,
   message: '',
 };
 

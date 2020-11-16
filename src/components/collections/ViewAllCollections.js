@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {source} from '../../source'
+import {connect} from "react-redux"
 
 import './create-collection.css';
 
@@ -8,12 +10,14 @@ class ViewAllCollections extends Component {
   };
 
   componentDidMount = async () => {
+    console.log(this.props.user)
     let collections = await fetch(
-      `https://phos-backend.herokuapp.com/collections/all`,
+      `${source}/collections/all`,
       {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'x-auth-token': this.props.user.token
         },
         credentials: 'omit',
       }
@@ -23,18 +27,6 @@ class ViewAllCollections extends Component {
       collections: collections,
     });
   };
-  // componentDidMount = async () => {
-  //   let collections = await fetch(`http://localhost:3000/collections/all`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   });
-  //   collections = await collections.json();
-  //   this.setState({
-  //     collections: collections,
-  //   });
-  // };
 
   render() {
     console.log('COLLLLLLLLLEEECCTIONS', this.state.collections);
@@ -43,13 +35,17 @@ class ViewAllCollections extends Component {
         <h1>THIS IS THE COLLECTIONS</h1>
         <div className='all-collections'>
           {this.state.collections.map((collection, i) => {
+            console.log(collection.userCreated)
             return (
               <div key={i} className='collection'>
                 <h4>{collection.name}</h4>
+                <h3>Created by: {collection.creatorUsername}{collection.userCreated? " YOURS":''}</h3>
                 <h5>Tags:</h5>
-                {collection.tags.map((tag, i) => {
-                  return <p key={i}>{tag}</p>;
-                })}
+                <div className="tags">
+                  {collection.tags.map((tag, i) => {
+                    return <p key={i}>{tag}</p>;
+                  })}
+                </div>
               </div>
             );
           })}
@@ -59,4 +55,8 @@ class ViewAllCollections extends Component {
   }
 }
 
-export default ViewAllCollections;
+const mapStateToProps = state => ({
+  user: state.userReducer
+})
+
+export default connect(mapStateToProps)(ViewAllCollections);
