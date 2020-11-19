@@ -34,7 +34,7 @@ console.log('HERE', process.env)
     }
   );
   response = await response.json();
-  dispatch(userCreated(response.message));
+  dispatch(loggedIn('Welcome to Phos!',response.token));
 };
 
 export const userCreated = (message) => ({

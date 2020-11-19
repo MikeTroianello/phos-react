@@ -1,7 +1,7 @@
 import * as ActionTypes from './userActionTypes';
 let defaultUserState = {
-  username: '',
-  password: '',
+  username: 'mike',
+  password: 'mike',
   passwordDouble: '',
   fullname: '',
   email: '',

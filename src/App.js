@@ -9,7 +9,8 @@ import CreateAccount from './components/account/CreateAccount';
 import CreateCollection from './components/collections/CreateCollection';
 import ViewAllCollections from './components/collections/ViewAllCollections';
 import Login from './components/account/Login';
-import Logout from './components/account/Logout'
+import Logout from './components/account/Logout';
+import Profile from './components/account/Profile'
 
 import './App.css';
 
@@ -41,6 +42,10 @@ const App = () => {
           exact
           path='/collections/all'
           render={(props) => <ViewAllCollections {...props} />}
+        />
+        <Route
+          path='/profile/:username'
+          render={(props) => <Profile {...props} />}
         />
       </Switch>
     </div>

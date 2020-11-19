@@ -9,7 +9,7 @@ const LoggedInNavbar = (props) => {
     <div className='navbar-container'>
     <div className="subcontainer-one">
       <div className='link'>
-        <Link to='/'>{props.user.username}</Link>
+        <Link to={`/profile/${props.user.username}`}>{props.user.username}</Link>
       </div>
     </div>
       <div className="subcontainer-two">
