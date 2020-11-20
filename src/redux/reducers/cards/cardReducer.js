@@ -1,13 +1,14 @@
 import * as ActionTypes from './cardActionTypes';
 let defaultCardState = {
-  definition: false,
-  title: '',
-  description: '',
+  definition: true,
+  frontside: '',
+  backside: '',
   example: '',
   reference: '',
   tags: '',
   public: false,
   message: '',
+  creatorId: null,
 };
 
 export const cardReducer = (state = defaultCardState, action) => {
@@ -29,8 +30,9 @@ export const cardReducer = (state = defaultCardState, action) => {
       };
     case ActionTypes.CARD_CREATED:
       return {
-        ...defaultCardState,
+        definition: state.definition,
         message: action.payload,
+        ...defaultCardState,
       };
     default:
       return state;

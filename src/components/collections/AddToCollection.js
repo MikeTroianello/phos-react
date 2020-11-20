@@ -1,20 +1,50 @@
 import React from 'react';
-import CreateCardForm from '../createCard/CreateCardForm'
+import CreateCardForm from '../createCard/CreateCardForm';
+import MiniCardMap from '../card/MiniCardMap';
+import Button from '../generalAssets/buttons/Button';
 
-import {connect} from 'react-redux'
+import { connect } from 'react-redux';
 
-import './collections.css'
+import { saveCardArray } from '../../redux/reducers/collections/collectionActionCreators';
+
+import './collections.css';
 
 const AddToCollection = (props) => {
-  return(
-    <div className="add-card-page">
+  return (
+    <div className='add-card-page'>
       <div>
         <h1>Add Cards to the Collection</h1>
-        <CreateCardForm/>
+        <CreateCardForm />
       </div>
-      <div><h2>Cards to Add:</h2></div>
+      <div>
+        <h2>Cards to Add:</h2>
+        <div className='mini-card-array'>
+          <Button
+            onEnter={(e) =>
+              props.saveCardArray(
+                e,
+                props.collection.temporaryCollection,
+                props.user.token,
+                props.match.params.collectionId
+              )
+            }
+          />
+          <MiniCardMap cardArray={props.collection.temporaryCollection} />
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default connect()(AddToCollection)
+const mapStateToProps = (state) => ({
+  card: state.cardReducer,
+  collection: state.collectionReducer,
+  user: state.userReducer,
+});
+
+const mapDispatchToProps = {
+  saveCardArray: (e, cardArray, token, collectionId) =>
+    saveCardArray(e, cardArray, token, collectionId),
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddToCollection);

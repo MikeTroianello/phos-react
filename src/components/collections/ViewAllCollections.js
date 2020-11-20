@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CollectionMap from './CollectionMap';
-import {source} from '../../source'
-import {connect} from "react-redux"
+import { source } from '../../source';
+import { connect } from 'react-redux';
 
 import './collections.css';
 
@@ -11,18 +11,15 @@ class ViewAllCollections extends Component {
   };
 
   componentDidMount = async () => {
-    console.log(this.props.user)
-    let collections = await fetch(
-      `${source}/collections/all`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-auth-token': this.props.user.token
-        },
-        credentials: 'omit',
-      }
-    );
+    console.log(this.props.user);
+    let collections = await fetch(`${source}/collections/all`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-auth-token': this.props.user.token,
+      },
+      credentials: 'omit',
+    });
     collections = await collections.json();
     this.setState({
       collections: collections,
@@ -55,18 +52,19 @@ class ViewAllCollections extends Component {
   //   );
   // }
   render() {
+    console.log('PRRROOOOOOOOOOPPPPPPPPS', this.props);
     console.log('COLLLLLLLLLEEECCTIONS', this.state.collections);
     return (
       <div>
         <h1>THIS IS THE COLLECTIONS</h1>
-        <CollectionMap collections={this.state.collections}/>
+        <CollectionMap collections={this.state.collections} />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  user: state.userReducer
-})
+const mapStateToProps = (state) => ({
+  user: state.userReducer,
+});
 
 export default connect(mapStateToProps)(ViewAllCollections);

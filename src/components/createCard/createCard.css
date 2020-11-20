@@ -14,3 +14,18 @@
   justify-content: space-between;
   margin: 10% 3%;
 }
+
+.card-choice {
+  display: flex;
+  justify-content: center;
+}
+
+.card-choice div {
+  border: 1px solid black;
+  margin: 2%;
+  padding: 2%;
+}
+
+.card-choice .chosen {
+  background-color: rgb(155, 14, 14);
+}

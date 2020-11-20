@@ -15,7 +15,7 @@ import '../../createCard/createCard.css';
 //  *reducer* for which reducer it should be sent to
 
 const Textbox = (props) => {
-  console.log('TEXTBOX', props.testing)
+  console.log('TEXTBOX', props);
   return (
     <div className='textbox'>
       <label htmlFor={props.field}>{props.field.toUpperCase()}:</label>

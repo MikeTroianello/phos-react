@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
 import OtherOptions from './OtherOptions.js';
 import YourOptions from './YourOptions.js';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux';
 
-const CollectionOptions = (props) =>{
-  console.log("THE COLLECTION OPTIONS", props)
-  return props.user.loggedIn ? <YourOptions collectionId={props.collectionId}/> : <OtherOptions collectionId={props.collectionId}/>
-}
-// const CollectionOptions = (props) =>{
-//   console.log("THE COLLECTION OPTIONS", props)
-//   return props.collectionId == props.user.id ? <YourOptions collectionId={props.collectionId}/> : <OtherOptions collectionId={props.collectionId}/>
-// }
+const CollectionOptions = (props) => {
+  console.log('COLLECTION OPTIONS', props);
+  return props.user.loggedIn ? (
+    <YourOptions collectionId={props.collectionId} />
+  ) : (
+    <OtherOptions collectionId={props.collectionId} />
+  );
+};
 
-const mapStateToProps = state => ({
-  user: state.userReducer
-})
+const mapStateToProps = (state) => ({
+  user: state.userReducer,
+});
 
-export default connect(mapStateToProps)(CollectionOptions)
+export default connect(mapStateToProps)(CollectionOptions);

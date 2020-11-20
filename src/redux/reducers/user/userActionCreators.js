@@ -1,6 +1,6 @@
 import * as ActionTypes from './userActionTypes';
 
-import {source} from '../../../source'
+import { source } from '../../../source';
 
 export const updateUserField = (e) => {
   return {
@@ -21,20 +21,17 @@ export const userPreCheck = (e, user) => {
 };
 
 export const createUser = (user) => async (dispatch) => {
-console.log('HERE', process.env)
-  let response = await fetch(
-    `${source}/users/signup`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'omit',
-      body: JSON.stringify(user),
-    }
-  );
+  console.log('HERE', process.env);
+  let response = await fetch(`${source}/users/signup`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'omit',
+    body: JSON.stringify(user),
+  });
   response = await response.json();
-  dispatch(loggedIn('Welcome to Phos!',response.token));
+  dispatch(loggedIn('Welcome to Phos!', response.token));
 };
 
 export const userCreated = (message) => ({
@@ -42,17 +39,16 @@ export const userCreated = (message) => ({
   payload: message,
 });
 
-export const loginPreCheck = (e, user) => dispatch => {
+export const loginPreCheck = (e, user) => (dispatch) => {
   e.preventDefault();
-  console.log("DA PRE CHECK", user)
+  console.log('DA PRE CHECK', user);
   if (!user.username || !user.password) {
     return {
       type: ActionTypes.LOGIN_FAILED,
       payload: 'Please enter a username and password',
     };
-  } else dispatch(login(user))
+  } else dispatch(login(user));
 };
-
 
 export const login = (user) => async (dispatch) => {
   console.log('LOGGING IN', user);
@@ -65,15 +61,14 @@ export const login = (user) => async (dispatch) => {
     body: JSON.stringify(user),
   });
   response = await response.json();
-  console.log("YOU HAVE NOW LOGGED IN", response)
-  dispatch(loggedIn(response.message, response.token));
+  console.log('YOU HAVE NOW LOGGED IN', response);
+  dispatch(loggedIn(response.message, response.token, response.id));
 };
 
-export const loggedIn = (message,token) => ({
+export const loggedIn = (message, token, id) => ({
   type: ActionTypes.LOGIN,
-  payload: {message, token},
+  payload: { message, token, id },
 });
-
 
 export const checkLogin = async () => {
   let response = await fetch(`${source}/users/checkLogin`, {
@@ -84,8 +79,8 @@ export const checkLogin = async () => {
     credentials: 'omit',
   });
   response = await response.json();
-  console.log("WHAT IS HAPPENING?", response)
-}
+  console.log('WHAT IS HAPPENING?', response);
+};
 
 // export const logout = async() => {
 //   console.log("INSIDE LOGOUT")
@@ -109,5 +104,5 @@ export const logout = () => {
   //   credentials: 'omit',
   // });
   // console.log("YOU HAVE NOW LOGGED OUT")
-  return{type: ActionTypes.LOGOUT}
-}
+  return { type: ActionTypes.LOGOUT };
+};
