@@ -4,6 +4,7 @@ let defaultColectionStore = {
   tags: '',
   private: false,
   message: '',
+  temporaryCollection: []
 };
 
 export const collectionReducer = (state = defaultColectionStore, action) => {
@@ -18,6 +19,11 @@ export const collectionReducer = (state = defaultColectionStore, action) => {
       return {
         ...state,
         [action.payload]: !state[action.payload],
+      };
+    case ActionTypes.ADD_CARD:
+      return {
+        ...state,
+        temporaryCollection: [...state.temporaryCollection, action.payload],
       };
     case ActionTypes.COLLECTION_CREATED:
       console.log('HEEERRREEE', action.payload);

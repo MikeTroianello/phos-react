@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {source} from '../../source';
-import CollectionMap from '../collections/CollectionMap'
+import CollectionMap from '../collections/CollectionMap';
+
+
 
 class Profile extends Component{
 
   state ={
     user: null,
-    collections: []
+    collections: [],
+    id: null
   }
 
   componentDidMount=async()=>{
-    console.log(this.props.user)
     let user = await fetch(
       `${source}/users/profiles/${this.props.user.username}`,
       {
@@ -25,10 +27,10 @@ class Profile extends Component{
     );
     user = await user.json();
     console.log(user)
-    console.log('HMMMMMMMMM',user.collections)
     this.setState({
       user: user,
-      collections: user.collections
+      collections: user.collections,
+      id: user.id
     },()=>console.log("THE NEW STATE", this.state));
   }
 
@@ -36,7 +38,7 @@ class Profile extends Component{
     return(
       <div>
         <h1>Welcome to your Profile</h1>
-        <CollectionMap collections={this.state.collections}/>
+        <CollectionMap collections={this.state.collections} id={this.state.id}/>
       </div>
     )
   }

@@ -10,6 +10,7 @@ let defaultUserState = {
   token: null,
   loggedIn:false,
   signup: false,
+  id: null
 };
 
 export const userReducer = (state = defaultUserState, action) => {
@@ -40,7 +41,8 @@ export const userReducer = (state = defaultUserState, action) => {
         password: '',
         message: action.payload.message,
         token: action.payload.token,
-        loggedIn: true
+        loggedIn: true,
+        id: action.payload.id
       };
     case ActionTypes.LOGOUT:
       return{

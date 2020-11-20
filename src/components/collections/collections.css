@@ -24,3 +24,13 @@
   /* width: 20%; */
   border: 1px solid black;
 }
+
+.add-card-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+/* 
+div {
+  border: 1px solid black;
+} */

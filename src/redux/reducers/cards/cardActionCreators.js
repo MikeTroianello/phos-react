@@ -35,3 +35,8 @@ export const cardCreated = (message) => ({
   type: ActionTypes.CARD_CREATED,
   payload: message,
 });
+
+export const questionOrDefinition = (response) =>({
+  type: ActionTypes.QUESTION_OR_DEFINITION,
+  payload: response
+})

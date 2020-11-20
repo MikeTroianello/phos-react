@@ -1,4 +1,5 @@
 import React from 'react';
+import CollectionOptions from './collectionActions/CollectionOptions'
 
 import './collections.css';
 
@@ -13,6 +14,7 @@ const Collection = (props) => {
           return <p key={i}>{tag}</p>;
         })}
       </div>
+      <CollectionOptions userCreated={props.collection.userCreated} collectionId={props.collection._id}/>
     </div>
   )
 }

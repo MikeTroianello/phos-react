@@ -1,6 +1,6 @@
 import * as ActionTypes from './cardActionTypes';
 let defaultCardState = {
-  type: '',
+  definition: false,
   title: '',
   description: '',
   example: '',
@@ -12,6 +12,11 @@ let defaultCardState = {
 
 export const cardReducer = (state = defaultCardState, action) => {
   switch (action.type) {
+    case ActionTypes.QUESTION_OR_DEFINITION:
+      return {
+        ...state,
+        definition: action.payload,
+      };
     case ActionTypes.UPDATE_FIELD:
       return {
         ...state,
