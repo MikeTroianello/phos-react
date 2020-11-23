@@ -1,6 +1,6 @@
 import React from 'react';
 import Collection from './SingleCollection';
-import './collections.css';
+import '../collections.css';
 
 const CollectionMap = (props) => {
   console.log('MAP OF THE PROBLEMATIC', props);

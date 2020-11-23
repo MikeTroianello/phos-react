@@ -1,7 +1,7 @@
 import React from 'react';
-import CollectionOptions from './collectionActions/CollectionOptions';
+import CollectionOptions from '../collectionActions/CollectionOptions';
 
-import './collections.css';
+import '../collections.css';
 
 //THERE MAY BE AN ISSUE HERE WITH PROPS.COLECTION._ID
 

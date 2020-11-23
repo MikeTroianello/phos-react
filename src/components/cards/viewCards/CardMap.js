@@ -1,6 +1,6 @@
 import React from 'react';
-import DefinitionCard from './DefinitionCard';
-import QuestionCard from './QuestionCard';
+import DefinitionCard from './ViewDefinitionCard';
+import QuestionCard from './ViewQuestionCard';
 
 const CardMap = (props) => {
   return (

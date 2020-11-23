@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateCardField } from '../../../redux/reducers/cards/cardActionCreators';
 
-import '../../createCard/createCard.css';
+import '../../cards/createCard/createCard.css';
 
 const LargeTextbox = (props) => {
   return (

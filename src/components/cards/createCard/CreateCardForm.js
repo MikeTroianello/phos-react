@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../generalAssets/buttons/Button';
-import CheckBox from '../generalAssets/buttons/CheckBox';
+import Button from '../../generalAssets/buttons/Button';
+import CheckBox from '../../generalAssets/buttons/CheckBox';
 import FormChanger from './FormChanger';
 import CardChoice from './CardChoice';
 
@@ -9,8 +9,8 @@ import {
   updateCardField,
   // createCard,
   clearCardForm,
-} from '../../redux/reducers/cards/cardActionCreators';
-import { addCardToCollection } from '../../redux/reducers/collections/collectionActionCreators';
+} from '../../../redux/reducers/cards/cardActionCreators';
+import { addCardToCollection } from '../../../redux/reducers/collections/collectionActionCreators';
 
 import './createCard.css';
 

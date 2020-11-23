@@ -9,7 +9,7 @@ import {
   createCollection,
 } from '../../../redux/reducers/collections/collectionActionCreators';
 
-import './collections.css';
+import '../collections.css';
 
 const CreateCollection = (props) => {
   console.log('MESSAGE!!', props.collectionReducer);

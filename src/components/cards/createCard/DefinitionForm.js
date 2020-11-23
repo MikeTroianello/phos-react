@@ -1,13 +1,15 @@
-import React from 'react';
-import Textbox from '../generalAssets/textBoxes/Textbox';
-import LargeTextbox from '../generalAssets/textBoxes/LargeTextbox';
+import React, { useState } from 'react';
+import Textbox from '../../generalAssets/textBoxes/Textbox';
+import LargeTextbox from '../../generalAssets/textBoxes/LargeTextbox';
 
 import { connect } from 'react-redux';
-import { updateCardField } from '../../redux/reducers/cards/cardActionCreators';
+import { updateCardField } from '../../../redux/reducers/cards/cardActionCreators';
 
 import './createCard.css';
 
 const DefinitionForm = (props) => {
+  const [example, toggleExample] = useState(false);
+  const [reference, toggleReference] = useState(false);
   return (
     <div>
       <Textbox
@@ -17,12 +19,14 @@ const DefinitionForm = (props) => {
         dispatch={(e) => props.updateCardField(e)}
       />
       <LargeTextbox field='backside' required />
-      <LargeTextbox field='example' />
-      <Textbox
-        field='reference'
-        state={props.card}
-        dispatch={(e) => props.updateCardField(e)}
-      />
+      {example && <LargeTextbox field='example' />}
+      {reference && (
+        <Textbox
+          field='reference'
+          state={props.card}
+          dispatch={(e) => props.updateCardField(e)}
+        />
+      )}
       <Textbox
         field='tags'
         state={props.card}

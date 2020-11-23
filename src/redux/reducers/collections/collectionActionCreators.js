@@ -13,9 +13,9 @@ export const updateCollectionField = (e) => {
 //   payload: { [e.target.name]: e.target.value },
 // });
 
-export const updateCheckBox = (e) => {
+export const toggleField = (e) => {
   return {
-    type: ActionTypes.UPDATE_CHECKBOX,
+    type: ActionTypes.TOGGLE_FIELD,
     payload: [e.target.name],
   };
 };

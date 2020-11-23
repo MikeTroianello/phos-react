@@ -1,14 +1,14 @@
 import * as ActionTypes from './cardActionTypes';
-import {source} from '../../../source'
+import { source } from '../../../source';
 
 export const updateCardField = (e) => ({
   type: ActionTypes.UPDATE_FIELD,
   payload: { [e.target.name]: e.target.value },
 });
 
-export const updateCheckBox = (e) => {
+export const toggleField = (e) => {
   return {
-    type: ActionTypes.UPDATE_CHECKBOX,
+    type: ActionTypes.TOGGLE_FIELD,
     payload: [e.target.name],
   };
 };
@@ -32,16 +32,15 @@ export const updateCheckBox = (e) => {
 // };
 
 export const clearCardForm = () => ({
-  type: ActionTypes.CARD_CREATED
-})
-
+  type: ActionTypes.CARD_CREATED,
+});
 
 export const cardCreated = (message) => ({
   type: ActionTypes.CARD_CREATED,
   payload: message,
 });
 
-export const questionOrDefinition = (response) =>({
+export const questionOrDefinition = (response) => ({
   type: ActionTypes.QUESTION_OR_DEFINITION,
-  payload: response
-})
+  payload: response,
+});

@@ -9,6 +9,8 @@ let defaultCardState = {
   public: false,
   message: '',
   creatorId: null,
+  showExample: false,
+  showReference: false,
 };
 
 export const cardReducer = (state = defaultCardState, action) => {
@@ -23,7 +25,7 @@ export const cardReducer = (state = defaultCardState, action) => {
         ...state,
         [Object.keys(action.payload)[0]]: Object.values(action.payload)[0],
       };
-    case ActionTypes.UPDATE_CHECKBOX:
+    case ActionTypes.TOGGLE_FIELD:
       return {
         ...state,
         [action.payload]: !state[action.payload],

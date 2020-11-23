@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateCheckBox } from '../../../redux/reducers/cards/cardActionCreators';
+import { toggleField } from '../../../redux/reducers/cards/cardActionCreators';
 
 //  PROPS
 //  checkField for the property in the reducer
@@ -16,7 +16,7 @@ const CheckBox = (props) => {
           type='checkbox'
           name={props.checkField}
           value={props.cardReducer.public}
-          onChange={props.updateCheckBox}
+          onChange={props.toggleField}
         />
         <label htmlFor={props.checkField}>{props.description}</label>
       </div>
@@ -30,7 +30,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  updateCheckBox: (e) => updateCheckBox(e),
+  toggleField: (e) => toggleField(e),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckBox);

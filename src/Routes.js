@@ -1,18 +1,17 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
-import Card from './components/card/JankyCard';
-import CreateCard from './components/createCard/CreateCardForm';
+// import Card from './components/card/JankyCard';
+import CreateCard from './components/cards/createCard/CreateCardForm';
 import CreateAccount from './components/account/CreateAccount';
-import CreateCollection from './components/collections/CreateCollection';
-import AddToCollection from './components/collections/AddToCollection';
-import ViewAllCollections from './components/collections/ViewAllCollections';
+import CreateCollection from './components/collections/collectionActions/CreateCollection';
+import AddToCollection from './components/collections/collectionActions/AddToCollection';
+import ViewAllCollections from './components/collections/viewingCollections/ViewAllCollections';
 import Login from './components/account/Login';
 import Logout from './components/account/Logout';
 import Profile from './components/account/Profile';
-import ViewCollection from './components/collections/ViewCollection';
+import ViewCollection from './components/collections/viewingCollections/ViewCollection';
 
 import './App.css';
 
@@ -20,7 +19,6 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path='/' render={(props) => <Home {...props} />} />
-      <Route exact path='/card' render={(props) => <Card {...props} />} />
       <Route
         exact
         path='/create-card'

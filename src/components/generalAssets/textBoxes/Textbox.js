@@ -4,7 +4,8 @@ import { updateCardField } from '../../../redux/reducers/cards/cardActionCreator
 import { updateUserField } from '../../../redux/reducers/user/userActionCreators';
 import { reducerEval, reducerValue } from '../../../functions/textboxFn';
 
-import '../../createCard/createCard.css';
+// import '../../createCard/createCard.css';
+import '../../cards/createCard/createCard.css';
 
 //  Required props:
 //

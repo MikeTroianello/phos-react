@@ -8,7 +8,7 @@ export const HIDECREATOR = 'HIDECREATOR';
 export const PUBLIC = 'PUBLIC';
 
 export const UPDATE_FIELD = 'UPDATE_FIELD';
-export const UPDATE_CHECKBOX = 'UPDATE_CHECKBOX';
+export const TOGGLE_FIELD = 'TOGGLE_FIELD';
 
 export const CREATE_CARD = 'CREATE_CARD';
 export const CARD_CREATED = 'CARD_CREATED';

@@ -1,9 +1,9 @@
 import React from 'react';
-import Textbox from '../generalAssets/textBoxes/Textbox';
-import LargeTextbox from '../generalAssets/textBoxes/LargeTextbox';
+import Textbox from '../../generalAssets/textBoxes/Textbox';
+import LargeTextbox from '../../generalAssets/textBoxes/LargeTextbox';
 
 import { connect } from 'react-redux';
-import { updateCardField } from '../../redux/reducers/cards/cardActionCreators';
+import { updateCardField } from '../../../redux/reducers/cards/cardActionCreators';
 
 import './createCard.css';
 
