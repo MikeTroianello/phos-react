@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CollectionMap from './CollectionMap';
-import { source } from '../../source';
+import { source } from '../../../source';
 import { connect } from 'react-redux';
 
 import './collections.css';

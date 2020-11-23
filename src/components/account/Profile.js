@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { source } from '../../source';
-import CollectionMap from '../collections/CollectionMap';
+import CollectionMap from '../collections/viewingCollections/CollectionMap';
 
 class Profile extends Component {
   state = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { source } from '../../source';
-import CardMap from '../card/CardMap';
+import { source } from '../../../source';
+import CardMap from '../../cards/CardMap';
 
 class ViewCollection extends Component {
   state = {

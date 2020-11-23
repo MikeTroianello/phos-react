@@ -1,13 +1,13 @@
 import React from 'react';
-import TextBox from '../generalAssets/textBoxes/Textbox';
-import Button from '../generalAssets/buttons/Button';
-import CheckBox from '../generalAssets/buttons/CheckBox';
+import TextBox from '../../generalAssets/textBoxes/Textbox';
+import Button from '../../generalAssets/buttons/Button';
+import CheckBox from '../../generalAssets/buttons/CheckBox';
 
 import { connect } from 'react-redux';
 import {
   updateCollectionField,
   createCollection,
-} from '../../redux/reducers/collections/collectionActionCreators';
+} from '../../../redux/reducers/collections/collectionActionCreators';
 
 import './collections.css';
 
@@ -35,7 +35,9 @@ const CreateCollection = (props) => {
           description='Make this private?'
         />
         <Button
-          onEnter={(e) => props.createCollection(e, props.collectionReducer, props.user.token)}
+          onEnter={(e) =>
+            props.createCollection(e, props.collectionReducer, props.user.token)
+          }
         />
       </div>
       <h1>{props.collectionReducer.message}</h1>
@@ -45,12 +47,13 @@ const CreateCollection = (props) => {
 
 const mapStateToProps = (state) => ({
   collectionReducer: state.collectionReducer,
-  user: state.userReducer
+  user: state.userReducer,
 });
 
 const mapDispatchToProps = {
   updateCollectionField: (e) => updateCollectionField(e),
-  createCollection: (e, collection, token) => createCollection(e, collection, token),
+  createCollection: (e, collection, token) =>
+    createCollection(e, collection, token),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateCollection);

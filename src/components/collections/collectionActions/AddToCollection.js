@@ -1,11 +1,11 @@
 import React from 'react';
-import CreateCardForm from '../createCard/CreateCardForm';
-import MiniCardMap from '../card/MiniCardMap';
-import Button from '../generalAssets/buttons/Button';
+import CreateCardForm from '../../createCard/CreateCardForm';
+import MiniCardMap from '../../cards/MiniCardMap';
+import Button from '../../generalAssets/buttons/Button';
 
 import { connect } from 'react-redux';
 
-import { saveCardArray } from '../../redux/reducers/collections/collectionActionCreators';
+import { saveCardArray } from '../../../redux/reducers/collections/collectionActionCreators';
 
 import './collections.css';
 
