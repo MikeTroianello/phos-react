@@ -8,8 +8,6 @@ import { updateCardField } from '../../../redux/reducers/cards/cardActionCreator
 import './createCard.css';
 
 const DefinitionForm = (props) => {
-  const [example, toggleExample] = useState(false);
-  const [reference, toggleReference] = useState(false);
   return (
     <div>
       <Textbox
@@ -19,8 +17,8 @@ const DefinitionForm = (props) => {
         dispatch={(e) => props.updateCardField(e)}
       />
       <LargeTextbox field='backside' required />
-      {example && <LargeTextbox field='example' />}
-      {reference && (
+      {props.card.example && <LargeTextbox field='example' />}
+      {props.card.reference && (
         <Textbox
           field='reference'
           state={props.card}

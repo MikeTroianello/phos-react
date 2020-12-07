@@ -12,14 +12,16 @@ const QuestionForm = (props) => {
     <div>
       <LargeTextbox field='frontside' required />
       <LargeTextbox field='backside' required />
-      <Textbox
-        field='reference'
-        state={props.cardReducer}
-        dispatch={(e) => props.updateCardField(e)}
-      />
+      {props.card.reference && (
+        <Textbox
+          field='reference'
+          state={props.card}
+          dispatch={(e) => props.updateCardField(e)}
+        />
+      )}
       <Textbox
         field='tags'
-        state={props.cardReducer}
+        state={props.card}
         dispatch={(e) => props.updateCardField(e)}
       />
     </div>
@@ -27,7 +29,7 @@ const QuestionForm = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  cardReducer: state.cardReducer,
+  card: state.cardReducer,
 });
 
 const mapDispatchToProps = {

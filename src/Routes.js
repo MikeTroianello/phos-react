@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Home from './components/home/Home';
-// import Card from './components/card/JankyCard';
+import Card from './components/cards/JankyCard';
 import CreateCard from './components/cards/createCard/CreateCardForm';
 import CreateAccount from './components/account/CreateAccount';
 import CreateCollection from './components/collections/collectionActions/CreateCollection';
@@ -19,6 +19,7 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path='/' render={(props) => <Home {...props} />} />
+      <Route exact path='/test' render={(props) => <Card {...props} />} />
       <Route
         exact
         path='/create-card'
