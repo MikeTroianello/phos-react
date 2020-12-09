@@ -1,18 +1,24 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { localStorageLogin } from './redux/reducers/user/userActionCreators';
 import Navbar from './components/navbar/Navbar';
-import Routes from './Routes'
+import Routes from './Routes';
 
 import './App.css';
 
-const App = () => {
+const App = (props) => {
+  useEffect(() => {
+    console.log('MOUNTED');
+    props.localStorageLogin();
+  });
   return (
     <div>
       <Navbar />
-      <Routes/>
+      <Routes />
     </div>
   );
 };
 
+const mapDispatchToProps = { localStorageLogin };
 
-export default App;
+export default connect(null, mapDispatchToProps)(App);

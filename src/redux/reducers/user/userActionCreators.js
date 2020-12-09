@@ -21,7 +21,6 @@ export const userPreCheck = (e, user) => {
 };
 
 export const createUser = (user) => async (dispatch) => {
-  console.log('HERE', process.env);
   let response = await fetch(`${source}/users/signup`, {
     method: 'POST',
     headers: {
@@ -41,7 +40,6 @@ export const userCreated = (message) => ({
 
 export const loginPreCheck = (e, user) => (dispatch) => {
   e.preventDefault();
-  console.log('DA PRE CHECK', user);
   if (!user.username || !user.password) {
     return {
       type: ActionTypes.LOGIN_FAILED,
@@ -51,7 +49,6 @@ export const loginPreCheck = (e, user) => (dispatch) => {
 };
 
 export const login = (user) => async (dispatch) => {
-  console.log('LOGGING IN', user);
   let response = await fetch(`${source}/users/login`, {
     method: 'POST',
     headers: {
@@ -61,8 +58,24 @@ export const login = (user) => async (dispatch) => {
     body: JSON.stringify(user),
   });
   response = await response.json();
-  console.log('YOU HAVE NOW LOGGED IN', response);
+  //SET TO LOCALSTORAGE HERE
+  if (response.success) {
+    await localStorage.setItem(
+      'user',
+      JSON.stringify({ username: user.username, password: user.password })
+    );
+    await localStorage.getItem('user');
+  }
   dispatch(loggedIn(response.message, response.token, response.id));
+};
+
+export const localStorageLogin = () => async (dispatch) => {
+  //PULL FROM LOCALSTORAGE HERE
+  let user = await localStorage.getItem('user');
+  user = JSON.parse(user);
+  if (user) {
+    dispatch(login(user));
+  }
 };
 
 export const loggedIn = (message, token, id) => ({
@@ -104,5 +117,6 @@ export const logout = () => {
   //   credentials: 'omit',
   // });
   // console.log("YOU HAVE NOW LOGGED OUT")
+  localStorage.removeItem('user');
   return { type: ActionTypes.LOGOUT };
 };

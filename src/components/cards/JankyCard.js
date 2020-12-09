@@ -17,23 +17,23 @@ class Card extends React.Component {
     this.state.signup ? (thing = 'card flipped') : (thing = 'card');
 
     return (
-      <div className='homepage-top'>
-        <div className='signup-login-container'>
-          <section className='container'>
-            <div className={thing}>
-              <div className='front card-div'>
-                <h1>FRONTSIDE</h1>
-              </div>
-              <div className='back card-div'>
-                <h1>BACKSIDE</h1>
-              </div>
+      // {/* <div className='homepage-top'> */}
+      <div className='signup-login-container' onClick={this.toggle}>
+        <section className='container'>
+          <div className={thing}>
+            <div className='front card-div'>
+              <h1>FRONTSIDE</h1>
             </div>
-          </section>
-          <button className='create-button' onClick={this.toggle}>
-            Flip card
-          </button>
-        </div>
+            <div className='back card-div'>
+              <h1>BACKSIDE</h1>
+            </div>
+          </div>
+        </section>
+        <button className='create-button' onClick={this.toggle}>
+          Flip card
+        </button>
       </div>
+      //{/* </div> */}
     );
   }
 }
