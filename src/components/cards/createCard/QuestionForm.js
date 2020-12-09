@@ -12,7 +12,8 @@ const QuestionForm = (props) => {
     <div>
       <LargeTextbox field='frontside' required />
       <LargeTextbox field='backside' required />
-      {props.card.reference && (
+      {props.card.showExample && <LargeTextbox field='example' />}
+      {props.card.showReference && (
         <Textbox
           field='reference'
           state={props.card}

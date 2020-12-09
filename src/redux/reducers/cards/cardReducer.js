@@ -26,6 +26,8 @@ export const cardReducer = (state = defaultCardState, action) => {
         [Object.keys(action.payload)[0]]: Object.values(action.payload)[0],
       };
     case ActionTypes.TOGGLE_FIELD:
+      console.log('AAAAA');
+      console.log('INSIDE TOGGLE FIELD', action.payload);
       return {
         ...state,
         [action.payload]: !state[action.payload],

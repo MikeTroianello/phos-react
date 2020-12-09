@@ -4,27 +4,7 @@ let defaultColectionStore = {
   tags: '',
   private: false,
   message: '',
-  temporaryCollection: [
-    {
-      definition: true,
-      frontside: 'One',
-      backside: 'One',
-      example: 'anything',
-      reference: 'none',
-      tags: 'a, d, h',
-      public: true,
-      creatorId: '5fb23b04ef57ee4cecc7db6d',
-    },
-    {
-      definition: false,
-      frontside: 'Two',
-      backside: 'Two',
-      reference: 'u',
-      tags: 'one, two, three',
-      public: true,
-      creatorId: '5fb23b04ef57ee4cecc7db6d',
-    },
-  ],
+  temporaryCollection: [],
 };
 
 export const collectionReducer = (state = defaultColectionStore, action) => {
@@ -36,6 +16,7 @@ export const collectionReducer = (state = defaultColectionStore, action) => {
         [Object.keys(action.payload)[0]]: Object.values(action.payload)[0],
       };
     case ActionTypes.TOGGLE_FIELD:
+      console.log('HMMMMMMMM');
       return {
         ...state,
         [action.payload]: !state[action.payload],

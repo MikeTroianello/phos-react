@@ -20,6 +20,7 @@ const AddToCollection = (props) => {
         <h2>Cards to Add:</h2>
         <div className='mini-card-array'>
           <Button
+            label='Add to Collection'
             onEnter={(e) =>
               props.saveCardArray(
                 e,

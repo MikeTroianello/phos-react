@@ -7,11 +7,18 @@ export const updateCardField = (e) => ({
 });
 
 export const toggleField = (e) => {
+  e.preventDefault();
+  console.log('TOGGLIN', e.target.name);
   return {
     type: ActionTypes.TOGGLE_FIELD,
     payload: [e.target.name],
   };
 };
+
+// export const toggleField = (e) => ({
+//   type: ActionTypes.UPDATE_FIELD,
+//   payload: e.target.name,
+// });
 
 // export const createCard = (e, card) => async (dispatch) => {
 //   e.preventDefault();

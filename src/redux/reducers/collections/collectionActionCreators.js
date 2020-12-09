@@ -14,6 +14,8 @@ export const updateCollectionField = (e) => {
 // });
 
 export const toggleField = (e) => {
+  console.log('FIELDDD', e);
+  console.log('TERGET DOT NAME', e.target.name);
   return {
     type: ActionTypes.TOGGLE_FIELD,
     payload: [e.target.name],

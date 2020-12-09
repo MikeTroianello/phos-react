@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Textbox from '../../generalAssets/textBoxes/Textbox';
 import LargeTextbox from '../../generalAssets/textBoxes/LargeTextbox';
 
@@ -17,8 +17,8 @@ const DefinitionForm = (props) => {
         dispatch={(e) => props.updateCardField(e)}
       />
       <LargeTextbox field='backside' required />
-      {props.card.example && <LargeTextbox field='example' />}
-      {props.card.reference && (
+      {props.card.showExample && <LargeTextbox field='example' />}
+      {props.card.showReference && (
         <Textbox
           field='reference'
           state={props.card}

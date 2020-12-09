@@ -5,14 +5,28 @@ import { questionOrDefinition } from '../../../redux/reducers/cards/cardActionCr
 const CardChoice = (props) => {
   return (
     <div className='card-choice'>
-      <div onClick={() => props.questionOrDefinition(true)}>Definition</div>
-      <div onClick={() => props.questionOrDefinition(false)}>Question</div>
+      <div
+        className={props.card.definition ? 'chosen' : ''}
+        onClick={() => props.questionOrDefinition(true)}
+      >
+        Definition
+      </div>
+      <div
+        className={props.card.definition ? '' : 'chosen'}
+        onClick={() => props.questionOrDefinition(false)}
+      >
+        Question
+      </div>
     </div>
   );
 };
+
+const mapStateToProps = (state) => ({
+  card: state.cardReducer,
+});
 
 const mapDispatchToProps = {
   questionOrDefinition,
 };
 
-export default connect(null, mapDispatchToProps)(CardChoice);
+export default connect(mapStateToProps, mapDispatchToProps)(CardChoice);
