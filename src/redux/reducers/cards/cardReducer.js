@@ -32,11 +32,27 @@ export const cardReducer = (state = defaultCardState, action) => {
         ...state,
         [action.payload]: !state[action.payload],
       };
+    case ActionTypes.EDIT_CARD:
+      console.log('INSIDE THE REDDDUCCCCERRRr', action.payload);
+      return { ...action.payload };
+    // return {
+    //   definition: '',
+    //   frontside: '',
+    //   backside: '',
+    //   example: '',
+    //   reference: '',
+    //   tags: '',
+    //   public: '',
+    //   message: '',
+    //   creatorId: '',
+    //   showExample: '',
+    //   showReference: '',
+    // };
     case ActionTypes.CARD_CREATED:
       return {
+        ...defaultCardState,
         definition: state.definition,
         message: action.payload,
-        ...defaultCardState,
       };
     default:
       return state;

@@ -36,6 +36,13 @@ export const collectionReducer = (state = defaultColectionStore, action) => {
         ...defaultColectionStore,
         message: 'Cards were added to the collection!',
       };
+    case ActionTypes.REMOVE_CARD_FROM_TEMPORARY_ARRAY:
+      let cardArr = state.temporaryCollection;
+      cardArr.filter((card) => card !== action.payload);
+      return {
+        ...defaultColectionStore,
+        temporaryCollection: cardArr,
+      };
     default:
       return state;
   }

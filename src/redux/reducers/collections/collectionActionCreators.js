@@ -75,3 +75,8 @@ export const saveCardArray = (e, cardArray, token, collectionId) => async (
 export const cardArraySaved = () => ({
   type: ActionTypes.CARD_ARRAY_SAVED,
 });
+
+export const removeCardFromTemporaryArray = (index) => ({
+  type: ActionTypes.REMOVE_CARD_FROM_TEMPORARY_ARRAY,
+  payload: index,
+});

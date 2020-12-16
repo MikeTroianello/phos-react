@@ -14,3 +14,5 @@ export const CREATE_CARD = 'CREATE_CARD';
 export const CARD_CREATED = 'CARD_CREATED';
 export const QUESTION_OR_DEFINITION = 'QUESTION_OR_DEFINITION';
 export const CLEAR_CARD_FORM = 'CLEAR_CARD_FORM';
+
+export const EDIT_CARD = 'EDIT_CARD';
