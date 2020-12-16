@@ -44,13 +44,19 @@ export const collectionCreated = (message) => ({
 });
 
 export const addCardToCollection = (card, id) => {
-  console.log('THIS IS THE ID', id);
-  card.creatorId = id;
-  console.log('THE CARD', card);
-  return {
-    type: ActionTypes.ADD_CARD_TO_COLLECTION,
-    payload: card,
-  };
+  console.log('ADD CARD TO COLLECTION', Number.isInteger(card.index));
+  if (Number.isInteger(card.index)) {
+    console.log('SUCCESS');
+    return {
+      type: ActionTypes.EDIT_CARD_IN_ARRAY,
+      payload: card,
+    };
+  } else {
+    return {
+      type: ActionTypes.ADD_CARD_TO_COLLECTION,
+      payload: card,
+    };
+  }
 };
 
 export const saveCardArray = (e, cardArray, token, collectionId) => async (

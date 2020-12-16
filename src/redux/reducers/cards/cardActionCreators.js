@@ -52,12 +52,11 @@ export const questionOrDefinition = (response) => ({
   payload: response,
 });
 
-export const editCard = (card) => ({
-  type: ActionTypes.EDIT_CARD,
-  payload: card,
-});
-// export const editCard = (e, card) => {
-//   e.preventDefault();
-//   console.log('CARRRRRRR', card);
-//   return { type: ActionTypes.EDIT_CARD, payload: card };
-// };
+// export const editCard = (card) => ({
+//   type: ActionTypes.EDIT_CARD,
+//   payload: card,
+// });
+export const editCard = (e, card) => {
+  e.preventDefault();
+  return { type: ActionTypes.EDIT_CARD, payload: card };
+};

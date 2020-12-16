@@ -6,13 +6,10 @@ import { removeCardFromTemporaryArray } from '../../../redux/reducers/collection
 //THE CARD INFO WILL BE PASSED IN FROM MiniCardMap
 
 const EditMiniCardButton = (props) => {
-  const cardEditing = (e, card, index) => {
-    e.preventDefault();
-    props.removeCardFromTemporaryArray(index);
-    props.editCard(card);
-  };
   return (
-    <button onClick={(e) => cardEditing(e, props.card, props.index)}>
+    <button
+      onClick={(e) => props.editCard(e, { ...props.card, index: props.index })}
+    >
       Edit
     </button>
   );

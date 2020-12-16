@@ -1,4 +1,5 @@
 import * as ActionTypes from './cardActionTypes';
+import * as ActionTypes2 from '../collections/collectionActionTypes';
 let defaultCardState = {
   definition: true,
   frontside: '',
@@ -11,6 +12,7 @@ let defaultCardState = {
   creatorId: null,
   showExample: false,
   showReference: false,
+  index: null,
 };
 
 export const cardReducer = (state = defaultCardState, action) => {
@@ -35,24 +37,16 @@ export const cardReducer = (state = defaultCardState, action) => {
     case ActionTypes.EDIT_CARD:
       console.log('INSIDE THE REDDDUCCCCERRRr', action.payload);
       return { ...action.payload };
-    // return {
-    //   definition: '',
-    //   frontside: '',
-    //   backside: '',
-    //   example: '',
-    //   reference: '',
-    //   tags: '',
-    //   public: '',
-    //   message: '',
-    //   creatorId: '',
-    //   showExample: '',
-    //   showReference: '',
-    // };
+
     case ActionTypes.CARD_CREATED:
       return {
         ...defaultCardState,
         definition: state.definition,
         message: action.payload,
+      };
+    case ActionTypes2.EDIT_CARD_IN_ARRAY:
+      return {
+        ...defaultCardState,
       };
     default:
       return state;

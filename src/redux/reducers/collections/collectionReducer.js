@@ -1,10 +1,45 @@
 import * as ActionTypes from './collectionActionTypes';
+
 let defaultColectionStore = {
   name: '',
   tags: '',
   private: false,
   message: '',
-  temporaryCollection: [],
+  temporaryCollection: [
+    {
+      definition: true,
+      frontside: 'ONE',
+      backside: 'ONe',
+      example: 'ev',
+      reference: 'weg',
+      tags: 'wwgw',
+      public: false,
+      showExample: true,
+      showReference: true,
+    },
+    {
+      definition: false,
+      frontside: 'TWO',
+      backside: 'sdfg',
+      example: 'sdfg',
+      reference: '',
+      tags: 'wwgw',
+      public: false,
+      showExample: true,
+      showReference: false,
+    },
+    {
+      definition: true,
+      frontside: 'THREE',
+      backside: 'Backsiede',
+      example: '',
+      reference: '',
+      tags: 'xxxxx',
+      public: true,
+      showExample: false,
+      showReference: false,
+    },
+  ],
 };
 
 export const collectionReducer = (state = defaultColectionStore, action) => {
@@ -36,9 +71,10 @@ export const collectionReducer = (state = defaultColectionStore, action) => {
         ...defaultColectionStore,
         message: 'Cards were added to the collection!',
       };
-    case ActionTypes.REMOVE_CARD_FROM_TEMPORARY_ARRAY:
+    case ActionTypes.EDIT_CARD_IN_ARRAY:
       let cardArr = state.temporaryCollection;
-      cardArr.filter((card) => card !== action.payload);
+      cardArr.splice(action.payload.index, 1, action.payload);
+      console.log('NEW ARRR', cardArr);
       return {
         ...defaultColectionStore,
         temporaryCollection: cardArr,
