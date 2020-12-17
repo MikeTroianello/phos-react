@@ -9,13 +9,14 @@ import { toggleField } from '../../../redux/reducers/cards/cardActionCreators';
 //  description for what the label next to the checkbox will be
 
 const CheckBox = (props) => {
+  console.log('THIS IS THE CHECL BOX', props.cardReducer);
   return (
     <div className='textbox'>
       <div>
         <input
           type='checkbox'
           name={props.checkField}
-          value={props.cardReducer.public}
+          value={true}
           onChange={props.toggleField}
         />
         <label htmlFor={props.checkField}>{props.description}</label>

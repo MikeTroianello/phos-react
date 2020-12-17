@@ -7,7 +7,7 @@ let defaultCardState = {
   example: '',
   reference: '',
   tags: '',
-  public: false,
+  public: true,
   message: '',
   creatorId: null,
   showExample: false,
@@ -45,6 +45,10 @@ export const cardReducer = (state = defaultCardState, action) => {
         message: action.payload,
       };
     case ActionTypes2.EDIT_CARD_IN_ARRAY:
+      return {
+        ...defaultCardState,
+      };
+    case ActionTypes2.ADD_CARD_TO_COLLECTION:
       return {
         ...defaultCardState,
       };
