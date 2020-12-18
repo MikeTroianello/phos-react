@@ -11,7 +11,6 @@ class ViewAllCollections extends Component {
   };
 
   componentDidMount = async () => {
-    console.log(this.props.user);
     let collections = await fetch(`${source}/collections/all`, {
       method: 'GET',
       headers: {
@@ -26,34 +25,7 @@ class ViewAllCollections extends Component {
     });
   };
 
-  // render() {
-  //   console.log('COLLLLLLLLLEEECCTIONS', this.state.collections);
-  //   return (
-  //     <div>
-  //       <h1>THIS IS THE COLLECTIONS</h1>
-  //       <div className='all-collections'>
-  //         {this.state.collections.map((collection, i) => {
-  //           console.log(collection.userCreated)
-  //           return (
-  //             <div key={i} className='collection'>
-  //               <h4>{collection.name}</h4>
-  //               <h3>Created by: {collection.creatorUsername}{collection.userCreated? " YOURS":''}</h3>
-  //               <h5>Tags:</h5>
-  //               <div className="tags">
-  //                 {collection.tags.map((tag, i) => {
-  //                   return <p key={i}>{tag}</p>;
-  //                 })}
-  //               </div>
-  //             </div>
-  //           );
-  //         })}
-  //       </div>
-  //     </div>
-  //   );
-  // }
   render() {
-    console.log('PRRROOOOOOOOOOPPPPPPPPS', this.props);
-    console.log('COLLLLLLLLLEEECCTIONS', this.state.collections);
     return (
       <div>
         <h1>THIS IS THE COLLECTIONS</h1>

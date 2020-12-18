@@ -95,20 +95,7 @@ export const checkLogin = async () => {
   console.log('WHAT IS HAPPENING?', response);
 };
 
-// export const logout = async() => {
-//   console.log("INSIDE LOGOUT")
-//   await fetch(`${source}/users/logout`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     credentials: 'omit',
-//   });
-//   console.log("YOU HAVE NOW LOGGED OUT")
-//   return{type: ActionTypes.LOGOUT}
-// }
 export const logout = () => {
-  // console.log("INSIDE LOGOUT")
   // await fetch(`${source}/users/logout`, {
   //   method: 'GET',
   //   headers: {
@@ -116,7 +103,7 @@ export const logout = () => {
   //   },
   //   credentials: 'omit',
   // });
-  // console.log("YOU HAVE NOW LOGGED OUT")
+
   localStorage.removeItem('user');
   return { type: ActionTypes.LOGOUT };
 };

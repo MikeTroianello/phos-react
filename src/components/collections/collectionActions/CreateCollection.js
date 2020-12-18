@@ -12,7 +12,6 @@ import {
 import '../collections.css';
 
 const CreateCollection = (props) => {
-  console.log('MESSAGE!!', props.collectionReducer);
   return (
     <div>
       <div>

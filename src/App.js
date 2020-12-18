@@ -8,7 +8,6 @@ import './App.css';
 
 const App = (props) => {
   useEffect(() => {
-    console.log('MOUNTED');
     props.localStorageLogin();
   });
   return (

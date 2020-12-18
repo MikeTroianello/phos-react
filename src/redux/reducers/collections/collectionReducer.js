@@ -46,13 +46,11 @@ let defaultColectionStore = {
 export const collectionReducer = (state = defaultColectionStore, action) => {
   switch (action.type) {
     case ActionTypes.UPDATE_COLLECTION_FIELD:
-      console.log('HEre:', action.payload);
       return {
         ...state,
         [Object.keys(action.payload)[0]]: Object.values(action.payload)[0],
       };
     case ActionTypes.TOGGLE_FIELD:
-      console.log('HMMMMMMMM');
       return {
         ...state,
         [action.payload]: !state[action.payload],
@@ -75,7 +73,6 @@ export const collectionReducer = (state = defaultColectionStore, action) => {
     case ActionTypes.EDIT_CARD_IN_ARRAY:
       let cardArr = state.temporaryCollection;
       cardArr.splice(action.payload.index, 1, action.payload);
-      console.log('NEW ARRR', cardArr);
       return {
         ...defaultColectionStore,
         temporaryCollection: cardArr,

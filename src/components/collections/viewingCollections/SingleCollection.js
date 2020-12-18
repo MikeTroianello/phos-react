@@ -6,8 +6,6 @@ import '../collections.css';
 //THERE MAY BE AN ISSUE HERE WITH PROPS.COLECTION._ID
 
 const Collection = (props) => {
-  console.log('THE UNDERSCORE', props.collection._id);
-  console.log('NO UNDERSCORE', props.collection.id);
   return (
     <div className='collection'>
       <h4>{props.collection.name}</h4>

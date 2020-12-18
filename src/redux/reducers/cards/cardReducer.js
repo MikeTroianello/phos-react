@@ -28,14 +28,15 @@ export const cardReducer = (state = defaultCardState, action) => {
         [Object.keys(action.payload)[0]]: Object.values(action.payload)[0],
       };
     case ActionTypes.TOGGLE_FIELD:
-      console.log('AAAAA');
-      console.log('INSIDE TOGGLE FIELD', action.payload);
+      console.log('INSIDE TOGGLE FIELD', action.payload[0]);
+      console.log(action.payload[0] === 'showExample');
       return {
         ...state,
         [action.payload]: !state[action.payload],
+        example: action.payload[0] === 'showExample' ? '' : state.example,
+        reference: action.payload[0] === 'showReference' ? '' : state.reference,
       };
     case ActionTypes.EDIT_CARD:
-      console.log('INSIDE THE REDDDUCCCCERRRr', action.payload);
       return { ...action.payload };
 
     case ActionTypes.CARD_CREATED:

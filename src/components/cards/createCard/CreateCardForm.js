@@ -17,15 +17,11 @@ import './createCard.css';
 
 const addCardAndClearForm = (e, props) => {
   e.preventDefault();
-  console.log('ALL DA PROPS', props);
-  console.log('THE ID', props.user.id);
-  console.log('THE USER', props.user);
   props.addCardToCollection(props.card, props.user.id);
   // props.clearCardForm();
 };
 
 const CreateCard = (props) => {
-  console.log('THE CARD-=-=-=-=-=-=', props.card);
   return (
     <form id='create-card-form'>
       <div

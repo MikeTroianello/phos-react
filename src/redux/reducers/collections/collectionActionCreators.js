@@ -2,7 +2,6 @@ import * as ActionTypes from './collectionActionTypes';
 import { source } from '../../../source';
 
 export const updateCollectionField = (e) => {
-  console.log('UPDATING...');
   return {
     type: ActionTypes.UPDATE_COLLECTION_FIELD,
     payload: { [e.target.name]: e.target.value },
@@ -14,8 +13,6 @@ export const updateCollectionField = (e) => {
 // });
 
 export const toggleField = (e) => {
-  console.log('FIELDDD', e);
-  console.log('TERGET DOT NAME', e.target.name);
   return {
     type: ActionTypes.TOGGLE_FIELD,
     payload: [e.target.name],
@@ -24,7 +21,6 @@ export const toggleField = (e) => {
 
 export const createCollection = (e, collection, token) => async (dispatch) => {
   e.preventDefault();
-  console.log('CREATING collection');
   let response = await fetch(`${source}/collections/create`, {
     method: 'POST',
     headers: {
@@ -44,9 +40,7 @@ export const collectionCreated = (message) => ({
 });
 
 export const addCardToCollection = (card, id) => {
-  console.log('ADD CARD TO COLLECTION', Number.isInteger(card.index));
   if (Number.isInteger(card.index)) {
-    console.log('SUCCESS');
     return {
       type: ActionTypes.EDIT_CARD_IN_ARRAY,
       payload: card,
@@ -63,8 +57,6 @@ export const saveCardArray = (e, cardArray, token, collectionId) => async (
   dispatch
 ) => {
   e.preventDefault();
-  console.log('CREATING collection', cardArray, collectionId);
-  console.log('OTHER', collectionId);
   let response = await fetch(`${source}/collections/add/${collectionId}`, {
     method: 'POST',
     headers: {

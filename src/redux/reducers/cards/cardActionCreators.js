@@ -22,7 +22,6 @@ export const toggleField = (e) => {
 
 // export const createCard = (e, card) => async (dispatch) => {
 //   e.preventDefault();
-//   console.log('CREATING CARD');
 //   let response = await fetch(
 //     `${source}/cards/create`,
 //     {

@@ -9,7 +9,6 @@ import { toggleField } from '../../../redux/reducers/cards/cardActionCreators';
 //  description for what the label next to the checkbox will be
 
 const CheckBox = (props) => {
-  console.log('THIS IS THE CHECL BOX', props.cardReducer);
   return (
     <div className='textbox'>
       <div>

@@ -4,7 +4,6 @@ import YourOptions from './YourOptions.js';
 import { connect } from 'react-redux';
 
 const CollectionOptions = (props) => {
-  console.log('COLLECTION OPTIONS', props);
   return props.user.loggedIn ? (
     <YourOptions collectionId={props.collectionId} />
   ) : (

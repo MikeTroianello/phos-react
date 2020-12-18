@@ -19,7 +19,7 @@ class ViewCollection extends Component {
       }
     );
     results = await results.json();
-    console.log('DA results', results);
+
     this.setState({
       cardArray: results.cards,
     });
