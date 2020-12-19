@@ -93,13 +93,15 @@
 }
 
 .card-div {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   width: 100%;
   /*     line-height: 260px; */
   /*     color: white; */
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
   /*     font-size: 140px; */
   position: absolute;
   -webkit-backface-visibility: hidden;
@@ -108,6 +110,16 @@
   backface-visibility: hidden;
   border: 1px solid black;
 }
+
+/* .card-div h1 {
+  font-size: 40px;
+  margin-top: -5vh;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+} */
+
 .card .front {
   /* background: red; */
   /* background-color: rgba(255, 255, 255, 0.2); */
@@ -126,3 +138,24 @@
   -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
+
+.card-frontside-definition {
+  font-size: 36px;
+  margin-bottom: 12vh;
+  /* -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden; */
+}
+
+card-frontside-question {
+  font-size: 20px;
+  margin-bottom: 12vh;
+}
+
+/* .flip-instructions {
+  position: absolute;
+  vertical-align: bottom;
+  width: 100%;
+  bottom: 0;
+} */
