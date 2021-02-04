@@ -41,3 +41,30 @@ div {
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+/* EDIT COLLECTION */
+
+.tag-map {
+  display: flex;
+}
+
+.tag {
+  background-color: lightgray;
+  margin: 0px 5px;
+  padding: 5px;
+  border: 1px solid rgb(156, 153, 153);
+}
+
+.tag-exists {
+  color: red;
+}
+
+.item-and-icon {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+}
+
+.delete-collection {
+  background-color: red;
+}
